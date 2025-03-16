@@ -19,44 +19,48 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-    document.querySelector(".contact form").addEventListener("submit", function (event) {
-        event.preventDefault(); 
+    document.getElementById("contactForm").addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent page reload
 
-        alert("Your appointment is booked!"); 
-        
-        window.location.href = "#home"; 
+        alert("Your appointment is booked!"); // Show confirmation alert
+
+        window.location.href = "#home"; // Redirect to home section
     });
-});
 
-  
-  
+    document.querySelector(".btn").addEventListener("click", function (event) {
+        event.preventDefault(); // Prevent default behavior
 
-  document.querySelectorAll('.btn').forEach(button => {
-    button.addEventListener('click', function (event) {
-        event.preventDefault(); 
-
-        let contactSection = document.getElementById('contact');
+        let contactSection = document.getElementById("contact");
         if (contactSection) {
-            contactSection.scrollIntoView({ behavior: 'smooth' });
+            contactSection.scrollIntoView({ behavior: "smooth" });
         }
     });
 });
 
 
 
-var swiper = new Swiper(".team-slider",{
-    loop:true,
-    grabCursor:true,
-    spaceBetween:20,
-    breakpoints:{
-        0: {
-            slidesPerView: 1,
+
+document.addEventListener("DOMContentLoaded", function () {
+    var swiper = new Swiper(".team-slider", {
+        loop: true,
+        grabCursor: true,
+        spaceBetween: 20,
+        slidesPerView: "auto", // Allow dynamic adjustment
+        centeredSlides: true,  // Helps with looping properly
+        autoplay: {
+            delay: 3000, // Adjust timing as needed
+            disableOnInteraction: false,
         },
-        768: {
-            slidesPerView: 2,
+        breakpoints: {
+            0: {
+                slidesPerView: 1.2,
+            },
+            768: {
+                slidesPerView: 2.2,
+            },
+            991: {
+                slidesPerView: 3.2,
+            },
         },
-        991: {
-            slidesPerView: 3,
-        },
-    },
+    });
 });
